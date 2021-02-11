@@ -45,6 +45,6 @@ I'm using [React DnD](https://react-dnd.github.io/react-dnd/docs/overview).
 
 I'll gradually add functionality bit by bit. Exploring best practice and new techniques as I go.
 
-### Screeshot
+### Screenshot
 
 ![scrabble-2021-02-11](https://user-images.githubusercontent.com/4911915/107667693-c071cb80-6c87-11eb-88ae-342babddda04.png)
