@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/scrabble-game/static/css/main.d9a3fa4c.chunk.css",
+    "main.js": "/scrabble-game/static/js/main.9349327d.chunk.js",
+    "main.js.map": "/scrabble-game/static/js/main.9349327d.chunk.js.map",
+    "runtime-main.js": "/scrabble-game/static/js/runtime-main.859242fd.js",
+    "runtime-main.js.map": "/scrabble-game/static/js/runtime-main.859242fd.js.map",
+    "static/js/2.f7b78f4a.chunk.js": "/scrabble-game/static/js/2.f7b78f4a.chunk.js",
+    "static/js/2.f7b78f4a.chunk.js.map": "/scrabble-game/static/js/2.f7b78f4a.chunk.js.map",
+    "static/js/3.74c736db.chunk.js": "/scrabble-game/static/js/3.74c736db.chunk.js",
+    "static/js/3.74c736db.chunk.js.map": "/scrabble-game/static/js/3.74c736db.chunk.js.map",
+    "index.html": "/scrabble-game/index.html",
+    "static/css/main.d9a3fa4c.chunk.css.map": "/scrabble-game/static/css/main.d9a3fa4c.chunk.css.map",
+    "static/js/2.f7b78f4a.chunk.js.LICENSE.txt": "/scrabble-game/static/js/2.f7b78f4a.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.859242fd.js",
+    "static/js/2.f7b78f4a.chunk.js",
+    "static/css/main.d9a3fa4c.chunk.css",
+    "static/js/main.9349327d.chunk.js"
+  ]
+}
