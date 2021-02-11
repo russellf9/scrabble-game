@@ -1,38 +1,70 @@
 .App {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.container {
+  margin-top: 50px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
+.tiles-container {
   align-items: center;
+  border: 1px solid darkgray;
+  border-radius: 3px;
+  display: flex;
+  flex-direction: row;
+  height: 100px;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  margin: 20px 0;
+  width: 800px;
 }
 
-.App-link {
-  color: #61dafb;
+.initial {
+  background-color: #eeeeee;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.selection {
+  background-color: #cecece;
 }
+
+.center-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.tile {
+  background-color: #d4ad84;
+  border-bottom: solid 4px #c7934e;
+  height: 70px;
+  margin-left: 2px;
+  margin-right: 2px;
+  position: relative;
+  width: 70px;
+}
+
+.tile h1{
+  line-height: 70px;
+  position: absolute;
+  text-transform: uppercase;
+}
+
+/*/TODO find a nicer way of doing this...*/
+.tile .score {
+  bottom: -15px;
+  position: absolute;
+  right: 4px;
+}
+
+.movable-item {
+  height: 70px;
+  width: 70px;
+  margin: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
