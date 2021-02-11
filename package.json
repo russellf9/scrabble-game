@@ -22,6 +22,7 @@
     "typescript": "^4.1.2",
     "web-vitals": "^1.0.1"
   },
+  "homepage": "https://russellf9.github.io/scrabble-game:web/",
   "scripts": {
     "predeploy": "npm run build",
     "deploy": "gh-pages - d build",
