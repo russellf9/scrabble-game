@@ -48,3 +48,7 @@ I'll gradually add functionality bit by bit. Exploring best practice and new tec
 ### Screenshot
 
 ![scrabble-2021-02-11](https://user-images.githubusercontent.com/4911915/107667693-c071cb80-6c87-11eb-88ae-342babddda04.png)
+
+### Project in progress
+
+[Scrabble Game](https://russellf9.github.io/scrabble-game)
