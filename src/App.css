@@ -67,4 +67,13 @@
   justify-content: center;
   align-items: center;
 }
-
+.phone {
+  height:100px;
+  width: 100px;
+  background-color: aquamarine;
+}
+.shopping-cart {
+  width: 500px;
+  border: 1px solid grey;
+  height: 200px;
+}

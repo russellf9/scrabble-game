@@ -8,15 +8,10 @@ import { Provider } from "react-redux";
 import rootReducer from "./tiles/store/reducers/index";
 import { composeWithDevTools } from "redux-devtools-extension";
 import { ready } from "./tiles/store/actions";
-// add dummy Store for now...
-function todos(state = [], action: any) {
-  switch (action.types) {
-    default:
-      return state;
-  }
-}
+
 const store = createStore(rootReducer, composeWithDevTools());
 store.dispatch(ready());
+
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
