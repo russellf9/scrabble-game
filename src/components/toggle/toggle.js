@@ -1,12 +1,40 @@
-import React, { useState } from "react";
+import React, { useReducer, useState } from "react";
 import Switch from "./switch";
 
-function useToggle() {
-  const [on, setOnState] = useState(false);
+const actionTypes = {
+  toggle: "TOGGLE",
+  on: "ON",
+  off: "OFF",
+};
 
-  const toggle = () => setOnState((o) => !o);
-  const setOn = () => setOnState(true);
-  const setOff = () => setOnState(false);
+function toggleReducer(state, action) {
+  switch (action.type) {
+    case actionTypes.toggle: {
+      return { on: !state.on };
+    }
+    case actionTypes.on: {
+      return { on: true };
+    }
+    case actionTypes.off: {
+      return { on: false };
+    }
+    default: {
+      throw new Error(`Unhandled type: ${action.type}`);
+    }
+  }
+}
+// note the `useToggle` function can be passed a reducer - IOC
+function useToggle() {
+  //const [on, setOnState] = useState(false);
+  const [{ on }, dispatch] = useReducer(toggleReducer, { on: false });
+
+  //const toggle = () => setOnState((o) => !o);
+  //const setOn = () => setOnState(true);
+  //const setOff = () => setOnState(false);
+
+  const toggle = () => dispatch({ type: actionTypes.toggle });
+  const setOn = () => dispatch({ type: actionTypes.on });
+  const setOff = () => dispatch({ type: actionTypes.off });
 
   return { on, toggle, setOn, setOff };
 }
