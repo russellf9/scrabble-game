@@ -13,7 +13,11 @@ export interface MovavbleItemProps {
 
 export interface MovableItemDispatchProps {
   changeItemParent: (currentItem: ItemType, newParent: string) => void;
-  moveItemHandler: (dragIndex: number, hoverIndex: number) => void;
+  moveItemHandler: (
+    dragIndex: number,
+    hoverIndex: number,
+    currentParent: string
+  ) => void;
 }
 
 type Props = MovavbleItemProps & MovableItemDispatchProps;
@@ -37,6 +41,10 @@ export const MovableItem = ({
 
       const dragIndex = item.index;
       const hoverIndex = index;
+      console.log(
+        `cant work this out | dragIndex: ${dragIndex} | hover index: ${hoverIndex}`
+      );
+      //debugger
       // Don't replace items with themselves
       if (dragIndex === hoverIndex) {
         return;
@@ -44,6 +52,7 @@ export const MovableItem = ({
 
       const current = ref.current;
 
+      console.log(`current: ${current}`);
       if (!current) {
         return;
       }
@@ -71,7 +80,9 @@ export const MovableItem = ({
         return;
       }
       // Time to actually perform the action
-      moveItemHandler(dragIndex, hoverIndex);
+      //
+      console.log("should be calling moveItemHandler");
+      moveItemHandler(dragIndex, hoverIndex, currentParent);
     },
   });
 
@@ -79,9 +90,9 @@ export const MovableItem = ({
     item: { index, name, currentParent, type: ITEM_TYPES.DRAGGABLE_ITEM },
     end: (item, monitor) => {
       const dropResult = monitor.getDropResult();
-
       // TODO remove some of the consts here
       const didDrop = monitor.didDrop();
+      debugger;
 
       if (item && dropResult && dropResult.name) {
         const newParent = dropResult.name;
