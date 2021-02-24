@@ -1,22 +1,22 @@
 {
   "files": {
-    "main.css": "/scrabble-game/static/css/main.d9a3fa4c.chunk.css",
-    "main.js": "/scrabble-game/static/js/main.9349327d.chunk.js",
-    "main.js.map": "/scrabble-game/static/js/main.9349327d.chunk.js.map",
-    "runtime-main.js": "/scrabble-game/static/js/runtime-main.859242fd.js",
-    "runtime-main.js.map": "/scrabble-game/static/js/runtime-main.859242fd.js.map",
-    "static/js/2.f7b78f4a.chunk.js": "/scrabble-game/static/js/2.f7b78f4a.chunk.js",
-    "static/js/2.f7b78f4a.chunk.js.map": "/scrabble-game/static/js/2.f7b78f4a.chunk.js.map",
-    "static/js/3.74c736db.chunk.js": "/scrabble-game/static/js/3.74c736db.chunk.js",
-    "static/js/3.74c736db.chunk.js.map": "/scrabble-game/static/js/3.74c736db.chunk.js.map",
+    "main.css": "/scrabble-game/static/css/main.b5cc7464.chunk.css",
+    "main.js": "/scrabble-game/static/js/main.f4233f07.chunk.js",
+    "main.js.map": "/scrabble-game/static/js/main.f4233f07.chunk.js.map",
+    "runtime-main.js": "/scrabble-game/static/js/runtime-main.2c690e43.js",
+    "runtime-main.js.map": "/scrabble-game/static/js/runtime-main.2c690e43.js.map",
+    "static/js/2.874a7b77.chunk.js": "/scrabble-game/static/js/2.874a7b77.chunk.js",
+    "static/js/2.874a7b77.chunk.js.map": "/scrabble-game/static/js/2.874a7b77.chunk.js.map",
+    "static/js/3.fd863add.chunk.js": "/scrabble-game/static/js/3.fd863add.chunk.js",
+    "static/js/3.fd863add.chunk.js.map": "/scrabble-game/static/js/3.fd863add.chunk.js.map",
     "index.html": "/scrabble-game/index.html",
-    "static/css/main.d9a3fa4c.chunk.css.map": "/scrabble-game/static/css/main.d9a3fa4c.chunk.css.map",
-    "static/js/2.f7b78f4a.chunk.js.LICENSE.txt": "/scrabble-game/static/js/2.f7b78f4a.chunk.js.LICENSE.txt"
+    "static/css/main.b5cc7464.chunk.css.map": "/scrabble-game/static/css/main.b5cc7464.chunk.css.map",
+    "static/js/2.874a7b77.chunk.js.LICENSE.txt": "/scrabble-game/static/js/2.874a7b77.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.859242fd.js",
-    "static/js/2.f7b78f4a.chunk.js",
-    "static/css/main.d9a3fa4c.chunk.css",
-    "static/js/main.9349327d.chunk.js"
+    "static/js/runtime-main.2c690e43.js",
+    "static/js/2.874a7b77.chunk.js",
+    "static/css/main.b5cc7464.chunk.css",
+    "static/js/main.f4233f07.chunk.js"
   ]
 }
