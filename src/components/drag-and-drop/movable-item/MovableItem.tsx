@@ -1,4 +1,3 @@
-import * as React from "react";
 import { useRef } from "react";
 import { useDrag, useDrop } from "react-dnd";
 import { ItemType } from "../../../interfaces";
@@ -41,10 +40,7 @@ export const MovableItem = ({
 
       const dragIndex = item.index;
       const hoverIndex = index;
-      console.log(
-        `cant work this out | dragIndex: ${dragIndex} | hover index: ${hoverIndex}`
-      );
-      //debugger
+
       // Don't replace items with themselves
       if (dragIndex === hoverIndex) {
         return;
@@ -81,7 +77,7 @@ export const MovableItem = ({
       }
       // Time to actually perform the action
       //
-      console.log("should be calling moveItemHandler");
+      //console.log("should be calling moveItemHandler");
       moveItemHandler(dragIndex, hoverIndex, currentParent);
     },
   });
@@ -90,9 +86,6 @@ export const MovableItem = ({
     item: { index, name, currentParent, type: ITEM_TYPES.DRAGGABLE_ITEM },
     end: (item, monitor) => {
       const dropResult = monitor.getDropResult();
-      // TODO remove some of the consts here
-      const didDrop = monitor.didDrop();
-      debugger;
 
       if (item && dropResult && dropResult.name) {
         const newParent = dropResult.name;

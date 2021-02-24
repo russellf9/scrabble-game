@@ -13,40 +13,27 @@ type ActionMap<M extends { [index: string]: any }> = {
 };
 
 export enum Types {
-  DropTile = "DROP_TILE", // for moveItemHandler
-  MoveTile = "MOVE_TILE", // for changeItemParentHandler
+  MoveTile = "MOVE_TILE", // for moveItemHandler
+  ChangeParent = "CHANGE_PARENT", // for changeItemParentHandler
 }
 
 type TilePayload = {
-  [Types.DropTile]: {
+  [Types.MoveTile]: {
     dragIndex: number;
     hoverIndex: number;
     currentParent: string;
   };
-  [Types.MoveTile]: {
+  [Types.ChangeParent]: {
     newParent: string;
     currentParent: string;
     name: string;
   };
 };
-type MyPayload = {
+
+type DropItemPayload = {
   dragIndex: number;
   hoverIndex: number;
   currentParent: string;
-};
-export type TileActions = ActionMap<TilePayload>[keyof ActionMap<TilePayload>];
-
-const moveItems = (action: TileActions, state: any) => {
-  const payload: MyPayload = action.payload as MyPayload;
-  const { currentParent, dragIndex, hoverIndex } = payload;
-
-  let arrayToMutate = state[currentParent];
-  const itemToMove: any = arrayToMutate[dragIndex];
-
-  arrayToMutate.splice(dragIndex, 1);
-  arrayToMutate.splice(hoverIndex, 0, itemToMove);
-
-  return arrayToMutate;
 };
 
 type ChangeParentPayLoad = {
@@ -55,6 +42,22 @@ type ChangeParentPayLoad = {
   name: string;
   newParent: string;
 };
+
+export type TileActions = ActionMap<TilePayload>[keyof ActionMap<TilePayload>];
+
+// TODO I wasn't able to type the `state` here
+const moveItems = (action: TileActions, state: any) => {
+  const payload: DropItemPayload = action.payload as DropItemPayload;
+  const { currentParent, dragIndex, hoverIndex } = payload;
+  let arrayToMutate = state[currentParent];
+  const itemToMove: TileItemType = arrayToMutate[dragIndex];
+
+  arrayToMutate.splice(dragIndex, 1);
+  arrayToMutate.splice(hoverIndex, 0, itemToMove);
+
+  return arrayToMutate;
+};
+
 const changeParent = (action: TileActions, state: any) => {
   const payload: ChangeParentPayLoad = action.payload as ChangeParentPayLoad;
 
@@ -62,7 +65,7 @@ const changeParent = (action: TileActions, state: any) => {
 
   let arrayToRemoveItemFrom = state[currentParent];
 
-  const itemToMove: any = arrayToRemoveItemFrom[index];
+  const itemToMove: TileItemType = arrayToRemoveItemFrom[index];
 
   arrayToRemoveItemFrom.splice(index, 1);
 
@@ -88,8 +91,8 @@ export const tilesReducer = (
 ): any => {
   // TileItemType[] => {
   switch (action.type) {
-    case Types.DropTile:
-      const payload: MyPayload = action.payload as MyPayload;
+    case Types.MoveTile:
+      const payload: DropItemPayload = action.payload as DropItemPayload;
       //console.log(payload);
       const { currentParent } = payload;
       //
@@ -104,11 +107,8 @@ export const tilesReducer = (
           ? moveItems(action, state)
           : [...state.Selection],
       };
-    case Types.MoveTile:
-      let movePayload = action.payload;
-      //debugger;
+    case Types.ChangeParent:
       return changeParent(action, state);
-    //return [...state];
 
     default:
       return [...state];

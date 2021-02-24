@@ -3,7 +3,7 @@ import { originalChosenTiles, originalTiles } from "./constants";
 import { TileItemType } from "./interfaces";
 import { TileActions, tilesReducer } from "./reducers";
 
-type InitialStateType = {
+export type InitialStateType = {
   tiles: {
     Initial: TileItemType[];
     Selection: TileItemType[];

@@ -1,13 +1,9 @@
-import { useContext } from "react";
-import { AppContext } from "./context";
-import { Container } from "./components/dnd/container";
 import { DndProvider } from "react-dnd";
-
 import { HTML5Backend } from "react-dnd-html5-backend";
+import "./App.css";
 import { AppProvider } from "./context";
-import { TileRackComponent } from "./components/tile-rack/TileRackComponent";
-import Toggle from "./components/toggle/toggle";
 import { TILES_NAMES } from "./constants";
+import { TileRackComponent } from "./components/tile-rack/TileRackComponent";
 
 const App = (): JSX.Element => {
   const { INITIAL, SELECTION } = TILES_NAMES;
@@ -28,7 +24,6 @@ const App = (): JSX.Element => {
           </DndProvider>
         </AppProvider>
       </div>
-      <Toggle /> <Container />
     </div>
   );
 };

@@ -3,7 +3,7 @@ import { Tile, TileItemType } from "./interfaces";
 export const ITEM_TYPES = {
   DRAGGABLE_ITEM: "draggable_item",
 };
-// TODO need to match to model as well
+
 export const TILES_NAMES = {
   INITIAL: "Initial",
   SELECTION: "Selection",
@@ -52,13 +52,17 @@ const initialLetters: Tile[] = [
   allTiles[22],
   allTiles[7],
 ];
+
 const uniqueId = () => Date.now();
+
+const getId = (index: number) => uniqueId() + index;
+
 // TODO keep here for the time being
 export const originalTiles: TileItemType[] = initialLetters.map(
-  (obj, index) => {
+  (obj: Tile, index: number) => {
     return {
       ...obj,
-      id: uniqueId(),
+      id: getId(index),
       name: `${index}-${obj.letter}`,
       currentParent: INITIAL,
     };
@@ -72,7 +76,7 @@ export const originalChosenTiles: TileItemType[] = originalChosenLetters.map(
   (obj, index) => {
     return {
       ...obj,
-      id: uniqueId(),
+      id: uniqueId() + index,
       name: `${index}-${obj.letter}`,
       currentParent: SELECTION,
     };

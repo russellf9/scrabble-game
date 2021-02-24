@@ -3,34 +3,31 @@ import { DropTargetMonitor, useDrop } from "react-dnd";
 import { AppContext } from "../../context";
 import { MovableItem } from "../../components/drag-and-drop/movable-item/MovableItem";
 import { TileComponent } from "../../components/tile/TileComponent";
-import { TileRack } from "../../components/tile-rack/TileRack";
-
 import { ITEM_TYPES } from "../../constants";
-import { ItemType, MovableItemType, TileItemType } from "../../interfaces";
+import { ItemType, TileItemType } from "../../interfaces";
 import { Types } from "../../reducers";
+
 type TileRackType = "Initial" | "Selection";
 
 export interface TileRackProps {
   tileRackType: TileRackType | string;
   className: string;
-  //children: JSX.Element[];
 }
 
 type Props = TileRackProps;
 
-export const TileRackComponent = ({ tileRackType, className }: Props) => {
+export const TileRackComponent = ({
+  tileRackType,
+  className,
+}: Props): JSX.Element => {
   const { state, dispatch } = useContext(AppContext);
 
   const changeItemParentHandler = (
     currentItem: ItemType,
     newParent: string
-  ) => {
-    console.log(
-      `changeItemParentHandler | currentItem: ${currentItem.name} | newParent: ${newParent} | index: ${currentItem.index}`
-    );
-    debugger;
+  ): void => {
     dispatch({
-      type: Types.MoveTile,
+      type: Types.ChangeParent,
       payload: {
         newParent,
         currentParent: currentItem.currentParent,
@@ -43,12 +40,9 @@ export const TileRackComponent = ({ tileRackType, className }: Props) => {
     dragIndex: number,
     hoverIndex: number,
     currentParent: string
-  ) => {
-    console.log(
-      `moveItemHandler | dragIndex: ${dragIndex} | hoverIndex: ${hoverIndex} | currentParent: ${currentParent}`
-    );
+  ): void => {
     dispatch({
-      type: Types.DropTile,
+      type: Types.MoveTile,
       payload: {
         dragIndex,
         hoverIndex,
@@ -57,25 +51,23 @@ export const TileRackComponent = ({ tileRackType, className }: Props) => {
     });
   };
 
-  const renderTiles = (item: TileItemType, index: number) => (
-    <>
-      <MovableItem
-        changeItemParent={changeItemParentHandler}
-        currentParent={item ? item.currentParent : "not-known"}
-        index={index}
-        key={item.id}
-        moveItemHandler={moveItemHandler}
-        name={`${item ? item.name : "not-known"}`}
-      >
-        <TileComponent letter={item.letter} score={item.score} />
-      </MovableItem>
-    </>
+  const renderTiles = (item: TileItemType, index: number): JSX.Element => (
+    <MovableItem
+      changeItemParent={changeItemParentHandler}
+      currentParent={item.currentParent}
+      index={index}
+      key={item.id}
+      moveItemHandler={moveItemHandler}
+      name={`${item ? item.name : "not-known"}`}
+    >
+      <TileComponent letter={item.letter} score={item.score} />
+    </MovableItem>
   );
 
   const tileType = tileRackType === "Initial" ? "Initial" : "Selection";
   const tiles = state.tiles[tileType].map(renderTiles);
 
-  const [{ isOver, canDrop }, drop] = useDrop({
+  const [, drop] = useDrop({
     accept: ITEM_TYPES.DRAGGABLE_ITEM,
     drop: () => ({ name: tileRackType }),
     collect: (monitor: DropTargetMonitor) => ({
@@ -91,6 +83,7 @@ export const TileRackComponent = ({ tileRackType, className }: Props) => {
       <div ref={drop} className={className}>
         {tiles}
       </div>
+      <p style={{ display: "none" }}>state: {JSON.stringify(state.tiles)}</p>
     </>
   );
 };
